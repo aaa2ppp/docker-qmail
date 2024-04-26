@@ -23,15 +23,15 @@ tar -zxf /app/setup/netqmail-1.06.tar.gz
 
 cd netqmail-1.06
 
-groupadd -g 161 nofiles
-useradd -u 161 -g nofiles -d ${QMAIL_HOME}/alias alias
-useradd -u 162 -g nofiles -d ${QMAIL_HOME} qmaild
-useradd -u 163 -g nofiles -d ${QMAIL_HOME} qmaill
-useradd -u 164 -g nofiles -d ${QMAIL_HOME} qmailp
-groupadd -g 162 qmail
-useradd -u 165 -g qmail -d ${QMAIL_HOME} qmailq
-useradd -u 166 -g qmail -d ${QMAIL_HOME} qmailr
-useradd -u 167 -g qmail -d ${QMAIL_HOME} qmails
+groupadd -g 81 nofiles
+useradd -u 81 -g nofiles -d ${QMAIL_HOME}/alias -s /usr/sbin/nologin alias
+useradd -u 82 -g nofiles -d ${QMAIL_HOME} -s /usr/sbin/nologin qmaild
+useradd -u 83 -g nofiles -d ${QMAIL_HOME} -s /usr/sbin/nologin qmaill
+useradd -u 84 -g nofiles -d ${QMAIL_HOME} -s /usr/sbin/nologin qmailp
+groupadd -g 82 qmail
+useradd -u 85 -g qmail -d ${QMAIL_HOME} -s /usr/sbin/nologin qmailq
+useradd -u 86 -g qmail -d ${QMAIL_HOME} -s /usr/sbin/nologin qmailr
+useradd -u 87 -g qmail -d ${QMAIL_HOME} -s /usr/sbin/nologin qmails
 
 make setup check
 
@@ -122,13 +122,14 @@ tar -zxf /app/setup/vpopmail-5.4.33.tar.gz
 cd vpopmail-5.4.33
 
 groupadd -g 89 vchkpw
-useradd -u 89 -g vchkpw vpopmail
+useradd -u 89 -g vchkpw -s /usr/sbin/nologin vpopmail
 
 ./configure
 make install-strip
 
 #Legacy support:
 ln -s /home/vpopmail /var/lib/vpopmail
+ln -s /home/vpopmail /usr/local/vpopmail
 
 
 ## EZMLM
